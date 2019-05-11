@@ -1,0 +1,16 @@
+let winnersNames = [
+    "Lee Bong-Ju", "Rop Rodgers", "Cheruiyot Robert Kipkoech", "Merga ", "Cheruiyot Robert Kiprono", "Mutai Geoffrey", "Korir Wesley", "Desisa Benti Lelisa", "Meb Keflezighi", "Desisa Benti Lelisa", "Lemi Berhanu Hayle"]
+
+var counts: [String: Int] = [:]
+
+for human in winnersNames {
+    counts[human] = (counts[human] ?? 0) + 1
+}
+
+print(counts)
+
+for (key, value) in counts {
+    if key.contains("Robert") {
+         print(" \(key) occurs \(value) time(s)")
+    }
+}
