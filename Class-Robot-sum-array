@@ -1,0 +1,22 @@
+class Robot{
+    
+func moveToRight(list: [Int]) -> [Int]{
+    
+    let size = list.count
+    var list2 = [Int](repeating: 0, count: 0)
+    var pass = size - 2
+        
+        for j in 0..<pass{
+      
+           var sum = list[j] + list[j + 1]
+           list2.append(sum)
+    }
+    
+    var last = list[size-1]
+    list2.append(last)
+    return list2
+}
+}
+
+let move = Robot()
+move.moveToRight(list: [1,2,3,4,5,6,67])
