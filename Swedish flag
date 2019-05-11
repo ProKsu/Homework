@@ -1,0 +1,109 @@
+import UIKit
+@IBDesignable
+
+class Flag: UIView {
+   
+    var heigth: CGFloat {
+        
+        return min(self.bounds.size.width,
+                   self.bounds.size.height)
+    }
+    
+    var weight: CGFloat {
+        
+        return min(self.bounds.size.width,
+                   self.bounds.size.height)
+    }
+    
+    private var CenterX: CGFloat {
+        return  heigth / 2
+    }
+  
+    private var CenterY: CGFloat {
+        return weight / 2
+    }
+   
+    private var Distance: CGFloat {
+        
+        return heigth / 10
+    }
+    
+    
+    private func pathForMainRectangle() -> UIBezierPath{
+        
+        let frameRectPath = UIBezierPath(rect: CGRect(x: 0, y: 40, width: weight, height: heigth))
+        
+        frameRectPath.lineWidth = 5
+        
+        return frameRectPath
+        
+    }
+        
+    private func pathForFirstSmallRect() -> UIBezierPath{
+        
+        let rectOneSmallCenter = UIBezierPath(rect: CGRect(x: CenterX, y: CenterY, width: Distance, height: Distance))
+        
+        rectOneSmallCenter.lineWidth = 5
+        
+        return rectOneSmallCenter
+        
+    }
+    
+    private func pathForSecondSmallRect() -> UIBezierPath{
+        
+        let rectTwoSmallCenter = UIBezierPath(rect: CGRect(x: heigth/2, y: weight/2 - Distance, width: Distance, height: Distance))
+        
+        rectTwoSmallCenter.lineWidth = 5
+        
+        return rectTwoSmallCenter
+        
+    }
+    
+    private func pathForThirdSecondSmallRect() -> UIBezierPath{
+        
+        let rectThreeSmallCenter = UIBezierPath(rect: CGRect(x: heigth/2, y: weight/2 + Distance, width: Distance, height: Distance))
+        
+        rectThreeSmallCenter.lineWidth = 5
+        
+        return rectThreeSmallCenter
+        
+    }
+    
+    private func pathForFourthSecondSmallRect() -> UIBezierPath{
+        
+        let rectFourSmallCenter = UIBezierPath(rect: CGRect(x: heigth/2 - Distance, y: weight/2, width: Distance, height: Distance))
+        
+        rectFourSmallCenter.lineWidth = 5
+        
+        return rectFourSmallCenter
+        
+    }
+    
+    private func pathForFirfthSecondSmallRect() -> UIBezierPath{
+        
+        let rectFirthSmallCenter = UIBezierPath(rect: CGRect(x: heigth/2 + Distance, y: weight/2, width: Distance, height: Distance))
+        
+        rectFirthSmallCenter.lineWidth = 5
+        
+        return rectFirthSmallCenter
+        
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
+        UIColor.red.setFill()
+        pathForMainRectangle().fill()
+        UIColor.white.setFill()
+        pathForFirstSmallRect().fill()
+        UIColor.white.setFill()
+        pathForSecondSmallRect().fill()
+        UIColor.white.setFill()
+        pathForThirdSecondSmallRect().fill()
+        UIColor.white.setFill()
+        pathForFourthSecondSmallRect().fill()
+        UIColor.white.setFill()
+        pathForFirfthSecondSmallRect().fill()
+        
+    }
+}
+
